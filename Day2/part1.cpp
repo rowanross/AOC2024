@@ -3,15 +3,16 @@
 #include <vector>
 #include <string>
 #include <sstream>
+using namespace std;
 
 int main() {
-    std::ifstream file("input.txt");
-    std::string line;
+    ifstream file("input.txt");
+    string line;
     int safeReports = 0;
 
-    while (std::getline(file, line)) {
-        std::vector<int> levels;
-        std::stringstream ss(line);
+    while (getline(file, line)) {
+        vector<int> levels;
+        stringstream ss(line);
         int level;
         
         // Parse numbers from line into vector
@@ -29,7 +30,7 @@ int main() {
             int diff = levels[i] - levels[i-1];
             
             // Check if difference is between 1 and 3 (inclusive)
-            if (std::abs(diff) < 1 || std::abs(diff) > 3) {
+            if (abs(diff) < 1 || abs(diff) > 3) {
                 isValid = false;
                 break;
             }
@@ -50,6 +51,6 @@ int main() {
         }
     }
 
-    std::cout << "Number of safe reports: " << safeReports << std::endl;
+    cout << "Number of safe reports: " << safeReports << endl;
     return 0;
 }

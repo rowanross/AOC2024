@@ -3,11 +3,12 @@
 #include <vector>
 #include <algorithm>
 #include <unordered_map>
+using namespace std;
 
 int main() {
-    std::ifstream file("input.txt");
-    std::vector<long> leftNums;
-    std::vector<long> rightNums;
+    ifstream file("input.txt");
+    vector<long> leftNums;
+    vector<long> rightNums;
     
     long left, right;
     while (file >> left >> right) {
@@ -16,7 +17,7 @@ int main() {
     }
 
     // Count occurrences of numbers in right list
-    std::unordered_map<long, int> rightNumCounts;
+    unordered_map<long, int> rightNumCounts;
     for (long num : rightNums) {
         rightNumCounts[num]++;
     }
@@ -27,7 +28,7 @@ int main() {
         totalSimilarity += leftNum * rightNumCounts[leftNum];
     }
 
-    std::cout << "Total similarity score: " << totalSimilarity << std::endl;
+    cout << "Total similarity score: " << totalSimilarity << endl;
 
     return 0;
 }

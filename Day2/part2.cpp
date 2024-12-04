@@ -3,9 +3,10 @@
 #include <vector>
 #include <string>
 #include <sstream>
+using namespace std;
 
 // Helper function to check if a sequence is valid
-bool isValidSequence(const std::vector<int>& levels) {
+bool isValidSequence(const vector<int>& levels) {
     if (levels.size() < 2) return false;
     
     bool isIncreasing = levels[1] > levels[0];
@@ -13,7 +14,7 @@ bool isValidSequence(const std::vector<int>& levels) {
     for (size_t i = 1; i < levels.size(); i++) {
         int diff = levels[i] - levels[i-1];
         
-        if (std::abs(diff) < 1 || std::abs(diff) > 3) {
+        if (abs(diff) < 1 || abs(diff) > 3) {
             return false;
         }
         
@@ -28,13 +29,13 @@ bool isValidSequence(const std::vector<int>& levels) {
 }
 
 int main() {
-    std::ifstream file("input.txt");
-    std::string line;
+    ifstream file("input.txt");
+    string line;
     int safeReports = 0;
 
-    while (std::getline(file, line)) {
-        std::vector<int> levels;
-        std::stringstream ss(line);
+    while (getline(file, line)) {
+        vector<int> levels;
+        stringstream ss(line);
         int level;
         
         // Parse numbers from line into vector
@@ -53,7 +54,7 @@ int main() {
         // Try removing each level one at a time to see if it makes the sequence valid
         bool canBeMadeValid = false;
         for (size_t i = 0; i < levels.size(); i++) {
-            std::vector<int> modifiedLevels = levels;
+            vector<int> modifiedLevels = levels;
             modifiedLevels.erase(modifiedLevels.begin() + i);
             
             if (isValidSequence(modifiedLevels)) {
@@ -67,6 +68,6 @@ int main() {
         }
     }
 
-    std::cout << "Number of safe reports: " << safeReports << std::endl;
+    cout << "Number of safe reports: " << safeReports << endl;
     return 0;
 }

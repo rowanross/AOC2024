@@ -3,11 +3,12 @@
 #include <vector>
 #include <algorithm>
 #include <cstdlib>
+using namespace std;
 
 int main() {
-    std::ifstream file("input.txt");
-    std::vector<long> leftNums;
-    std::vector<long> rightNums;
+    ifstream file("input.txt");
+    vector<long> leftNums;
+    vector<long> rightNums;
     
     long left, right;
     while (file >> left >> right) {
@@ -16,8 +17,8 @@ int main() {
     }
 
     // Sort both lists
-    std::sort(leftNums.begin(), leftNums.end());
-    std::sort(rightNums.begin(), rightNums.end());
+    sort(leftNums.begin(), leftNums.end());
+    sort(rightNums.begin(), rightNums.end());
 
     long totalDistance = 0;
     
