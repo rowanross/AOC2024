@@ -1,3 +1,7 @@
+part1
+part2
+!part1.cpp
+!part2.cpp
 *.exe
 .vscode
 input.txt
